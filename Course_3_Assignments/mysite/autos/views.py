@@ -26,6 +26,17 @@ class MakeCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('autos:all')
 
 
+class MakeUpdate(LoginRequiredMixin, UpdateView):
+    model = Make
+    fields = '__all__'
+    success_url = reverse_lazy('autos:all')
+
+class MakeDelete(LoginRequiredMixin, DeleteView):
+    model = Make
+    fields = '__all__'
+    success_url = reverse_lazy('autos:all')
+
+
 
 
 
