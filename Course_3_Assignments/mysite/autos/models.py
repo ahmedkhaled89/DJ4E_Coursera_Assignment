@@ -5,7 +5,7 @@ from django.core.validators import MinLengthValidator
 # Create your models here.
 
 class Make(models.Model):
-    name = models.TextField(
+    name = models.CharField(
         max_length=200,
         help_text='Enter a make (e.g. Dodge)',
         validators=[MinLengthValidator(2,"Make must be greater than 1 character")]
