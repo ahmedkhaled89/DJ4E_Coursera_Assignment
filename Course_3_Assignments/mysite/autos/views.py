@@ -14,4 +14,14 @@ class MainView(LoginRequiredMixin, View):
         ctx = {'make_count': mc, 'auto_list': al}
         return render(request, 'autos/auto_list.html', ctx)
 
+class MakeView(LoginRequiredMixin, View):
+    def get(self, request):
+        ml = Make.objects.all()
+        ctx = {'make_list': ml}
+        return render(request, 'autos/make_list.html', ctx)
+
+
+
+
+
 
