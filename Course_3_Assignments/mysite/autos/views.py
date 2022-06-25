@@ -39,4 +39,21 @@ class MakeDelete(LoginRequiredMixin, DeleteView):
 
 
 
+class AutoCreate(LoginRequiredMixin, CreateView):
+    model = Auto
+    fields = '__all__'
+    success_url = reverse_lazy('autos:all')
+
+
+class AutoUpdate(LoginRequiredMixin, UpdateView):
+    model = Auto
+    fields = '__all__'
+    success_url = reverse_lazy('autos:all')
+
+
+class AutoDelete(LoginRequiredMixin, DeleteView):
+    model = Auto
+    fields = '__all__'
+    success_url = reverse_lazy('autos:all')
+
 
