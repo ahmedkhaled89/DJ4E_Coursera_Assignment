@@ -29,7 +29,11 @@ class BreedUpdate(UpdateView, LoginRequiredMixin):
     fields = '__all__'
     success_url = reverse_lazy('cats:all')
 
-#Breed Update View
+#Breed Delete View
+class BreedDelete(DeleteView, LoginRequiredMixin):
+    model = Breed
+    fields = '__all__'
+    success_url = reverse_lazy('cats:all')
 
 #Cats CRUD Views
 
