@@ -52,5 +52,10 @@ class CatList(LoginRequiredMixin, View):
         return render(request, "cats/cat_list.html", cnx)
 
 #Cats Update View
+class CatUpdate(UpdateView, LoginRequiredMixin):
+    model = Cat
+    fields = '__all__'
+    success_url = reverse_lazy('cats:all')
+    
 
 #Cats Delete View

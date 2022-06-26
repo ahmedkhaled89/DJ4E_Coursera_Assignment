@@ -7,7 +7,7 @@
     {% for cat in cats %}
       <li>
           {{ cat.nickname }} ({{ cat.breed }})
-          (<a href="">Update</a> |
+          (<a href="{%url 'cats:cat_update' cat.id%}">Update</a> |
           <a href="">Delete</a>) <br/>
       </li>
     {% endfor %}
