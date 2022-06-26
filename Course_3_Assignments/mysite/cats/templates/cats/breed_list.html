@@ -6,7 +6,7 @@
 <ul>
     {% for breed in breeds%}
     <li>{{breed}}
-        (<a href="">Update</a> 
+        (<a href="{%url 'cats:breed_update' breed.id%}">Update</a> 
         |<a href="">Delete</a> )
 
 

@@ -24,6 +24,10 @@ class BreedList(LoginRequiredMixin, View):
         return render(request, "cats/breed_list.html", cnx)
 
 #Breed Update View
+class BreedUpdate(UpdateView, LoginRequiredMixin):
+    model= Breed
+    fields = '__all__'
+    success_url = reverse_lazy('cats:all')
 
 #Breed Update View
 
