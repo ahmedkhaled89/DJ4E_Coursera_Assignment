@@ -17,3 +17,8 @@ class CatList(LoginRequiredMixin, View):
         cnx = { "cats": cat_list, "breed_count": breed_count}
         return render(request, "cats/cat_list.html", cnx)
 
+class BreedCreate(CreateView):
+    model = Breed
+    fields = "__all__"
+    success_url = reverse_lazy('cats:allcats')
+
