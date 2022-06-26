@@ -9,5 +9,7 @@ urlpatterns = [
     path('lookup/<int:pk>/delete', views.BreedDelete.as_view(), name='breed_delete'),
     path('main/create', views.CatCreate.as_view(), name = 'cat_create'),
     path('main/<int:pk>/update', views.CatUpdate.as_view(), name = 'cat_update'),
+    path('main/<int:pk>/delete', views.CatDelete.as_view(), name = 'cat_delete'),
+
     
 ]

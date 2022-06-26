@@ -56,6 +56,10 @@ class CatUpdate(UpdateView, LoginRequiredMixin):
     model = Cat
     fields = '__all__'
     success_url = reverse_lazy('cats:all')
-    
 
 #Cats Delete View
+class CatDelete(DeleteView, LoginRequiredMixin):
+     model = Cat
+     fields = '__all__'
+     success_url = reverse_lazy('cats:all')
+
