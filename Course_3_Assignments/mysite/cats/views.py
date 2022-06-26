@@ -38,6 +38,10 @@ class BreedDelete(DeleteView, LoginRequiredMixin):
 #Cats CRUD Views
 
 #Cat Create View
+class CatCreate(LoginRequiredMixin, CreateView):
+    model = Cat
+    fields = '__all__'
+    success_url = reverse_lazy('cats:all')
 
 #Cat Reed Vie (List View)
 class CatList(LoginRequiredMixin, View):

@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Cat List</h1>
-  {% if cat_list %}
+  {% if cats %}
   <ul>
-    {% for cat in cat_list %}
+    {% for cat in cats %}
       <li>
           {{ cat.nickname }} ({{ cat.breed }})
           (<a href="">Update</a> |
@@ -13,11 +13,11 @@
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no cats in the library.</p>
+    <p>There are no cats.</p>
   {% endif %}
   <p>
     {% if breed_count > 0 %}
-      <a href="">Add a cat</a>
+      <a href="{%url 'cats:cat_create'%}">Add a cat</a>
     {% else %}
       Please add a breed before you add a cat.
     {% endif %}
