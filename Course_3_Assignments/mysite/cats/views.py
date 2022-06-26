@@ -22,3 +22,4 @@ class BreedCreate(CreateView):
     fields = "__all__"
     success_url = reverse_lazy('cats:allcats')
 
+
