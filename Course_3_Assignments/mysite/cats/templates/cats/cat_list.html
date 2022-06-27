@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Cat List</h1>
-  {% if cats %}
+  {% if cat_list %}
   <ul>
-    {% for cat in cats %}
+    {% for cat in cat_list %}
       <li>
           {{ cat.nickname }} ({{ cat.breed }})
           (<a href="{%url 'cats:cat_update' cat.id%}">Update</a> |

@@ -5,6 +5,8 @@ from django.views import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Cat, Breed
+from django.views import generic
+
 # Create your views here.
 
 #Breed CRUD Views
@@ -16,12 +18,13 @@ class BreedCreate(CreateView):
     success_url = reverse_lazy('cats:all')
 
 #Breed Reed View (List View)
-class BreedList(LoginRequiredMixin, View):
-    def get(self, request):
+class BreedList(LoginRequiredMixin, generic.ListView):
+    model = Breed
+    """def get(self, request):
         breed_list = Breed.objects.all()
         breed_count = Breed.objects.all().count()
         cnx = { "breeds": breed_list, "breed_count": breed_count}
-        return render(request, "cats/breed_list.html", cnx)
+        return render(request, "cats/breed_list.html", cnx)"""
 
 #Breed Update View
 class BreedUpdate(UpdateView, LoginRequiredMixin):
@@ -44,12 +47,17 @@ class CatCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('cats:all')
 
 #Cat Reed Vie (List View)
-class CatList(LoginRequiredMixin, View):
-    def get(self, request):
+class CatList(LoginRequiredMixin, generic.ListView):
+    model = Cat
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['breed_count'] = Breed.objects.all().count()
+            return context
+    '''def get(self, request):
         cat_list = Cat.objects.all()
         breed_count = Breed.objects.all().count()
-        cnx = { "cats": cat_list, "breed_count": breed_count}
-        return render(request, "cats/cat_list.html", cnx)
+        cnx = { "cat_list": cat_list, "breed_count": breed_count}
+        return render(request, "cats/cat_list.html", cnx)'''
 
 #Cats Update View
 class CatUpdate(UpdateView, LoginRequiredMixin):
